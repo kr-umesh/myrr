@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriLife - Organic Farming & Equipment</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .section {
+            display: none; /* Hide all sections by default */
+        }
+        .active {
+            display: block; /* Show the active section */
+        }
+        /* Styles for the feedback form */
+        form {
+            display: flex;
+            flex-direction: column; /* Arrange items vertically */
+            max-width: 400px; /* Optional: Set a max width for the form */
+            margin: auto; /* Center the form */
+        }
+        label {
+            margin-top: 10px; /* Space between labels and inputs */
+        }
+        input, textarea {
+            padding: 10px; /* Add padding for inputs and text area */
+            margin-top: 5px; /* Space between inputs and text area */
+            width: 100%; /* Full width for inputs and text area */
+            box-sizing: border-box; /* Include padding in width */
+        }
+        button {
+            margin-top: 15px; /* Space above the submit button */
+            padding: 10px; /* Padding for the button */
+            background-color: #4CAF50; /* Button color */
+            color: white; /* Text color */
+            border: none; /* Remove border */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+        button:hover {
+            background-color: #45a049; /* Darker shade on hover */
+        }
+        /* Active link styling */
+        .navbar ul li a.active {
+            font-weight: bold; /* Make active link bold */
+            color: #4CAF50; /* Change color for active link */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <h1>AgriLife</h1>
+            <ul>
+                <li><a href="#" onclick="showSection('home', this)">Home</a></li>
+                <li><a href="#" onclick="showSection('organic-farming', this)">Organic Farming</a></li>
+                <li><a href="#" onclick="showSection('others', this)">others</a></li>
+                <li><a href="#" onclick="showSection('Feedback', this)">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+     <!-- Home Section -->
+        <section id="home" class="section active">
+            <h2>Welcome to AgriLife</h2>
+            <p>Your trusted platform for organic farming, equipment sales, and rentals.</p>
+            <p>Explore our services and resources designed to empower farmers for a sustainable future.</p>
+            <!-- Centered Get Started Button -->
+            <div class="centered-button">
+                <a href="javascript:void(0);" class="btn" onclick="showSection('account')">Get Started</a>
+            </div>
+        </section>
+    
+        <!-- Account Section -->
+        <section id="account" class="section">
+            <h2>Account</h2>
+            <button onclick="toggleForms('login')">Login</button>
+            <button onclick="toggleForms('signup')">Sign Up</button>
+    
+            <!-- Login Form -->
+            <form id="login-form" style="display: none;">
+                <h3>Login</h3>
+                <label for="login-email">Email:</label>
+                <input type="email" id="login-email" name="login-email" required>
+                
+                <label for="login-password">Password:</label>
+                <input type="password" id="login-password" name="login-password" required>
+                
+                <button type="submit">Login</button>
+            </form>
+    
+            <!-- Signup Form -->
+            <form id="signup-form" style="display: none;">
+                <h3>Sign Up</h3>
+                <label for="signup-name">Name:</label>
+                <input type="text" id="signup-name" name="signup-name" required>
+                
+                <label for="signup-address">Address:</label>
+                <input type="text" id="signup-address" name="signup-address" required>
+                
+                <label for="signup-age">Age:</label>
+                <input type="number" id="signup-age" name="signup-age" required>
+                
+                <label for="signup-phone">Phone:</label>
+                <input type="tel" id="signup-phone" name="signup-phone" required>
+                
+                <label for="signup-email">Email:</label>
+                <input type="email" id="signup-email" name="signup-email" required>
+                
+                <label for="signup-password">Password:</label>
+                <input type="password" id="signup-password" name="signup-password" required>
+                
+                <label for="signup-confirm-password">Confirm Password:</label>
+                <input type="password" id="signup-confirm-password" name="signup-confirm-password" required>
+                
+                <button type="submit">Sign Up</button>
+            </form>
+            <button onclick="showSection('home')">Back to Home</button>
+        </section>
+    
+        <script>
+            function showSection(sectionId) {
+                // Hide all sections
+                const sections = document.querySelectorAll('.section');
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+    
+                // Show the selected section
+                const selectedSection = document.getElementById(sectionId);
+                selectedSection.classList.add('active');
+            }
+    
+            function toggleForms(formType) {
+                const loginForm = document.getElementById('login-form');
+                const signupForm = document.getElementById('signup-form');
+    
+                if (formType === 'login') {
+                    loginForm.style.display = 'block';
+                    signupForm.style.display = 'none';
+                } else if (formType === 'signup') {
+                    signupForm.style.display = 'block';
+                    loginForm.style.display = 'none';
+                }
+            }
+        </script>
+    </body>
+    </html>
+    
+     <!-- Organic Farming Section -->
+    <section id="organic-farming" class="section">
+        <h2>Organic Farming</h2>
+        <p>Learn sustainable farming techniques and explore our range of organic products.</p>
+        <div class="card-container">
+            <div class="card">
+                <h3><a href="#" onclick="showSection('benefits-of-organic-farming', this)">Benefits of Organic Farming</a></h3>
+            </div>
+            <div class="card">
+                <h3><a href="#" onclick="showSection('workshops-and-training', this)">Workshops & Training</a></h3>
+            </div>
+            <div class="card">
+                <h3><a href="#" onclick="showSection('strategies-for-organic-farming', this)">Strategies for Organic Farming</a></h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits of Organic Farming Section -->
+    <section id="benefits-of-organic-farming" class="section">
+        <h2>Benefits of Organic Farming</h2>
+        <p>Organic farming promotes biodiversity, improves soil health, and reduces pollution. Here are some key benefits:</p>
+        <ul>
+            <li><a href="#" onclick="showSection('environmental-health', this)">Environmental Health</a></li>
+            <li><a href="#" onclick="showSection('human-health', this)">Human Health</a></li>
+            <li><a href="#" onclick="showSection('animal-welfare', this)">Animal Welfare</a></li>
+            <li><a href="#" onclick="showSection('sustainability-climate-resilience', this)">Sustainability and Climate Resilience</a></li>
+            <li><a href="#" onclick="showSection('support-local-economies', this)">Support for Local Economies</a></li>
+        </ul>
+        <button onclick="showSection('organic-farming', this)">Back to Organic Farming</button>
+    </section>
+
+    <!-- Environmental Health Section -->
+    <section id="environmental-health" class="section">
+        <h2>Environmental Health</h2>
+        <p>Organic farming practices enhance biodiversity and contribute to healthier ecosystems.</p>
+        <button onclick="showSection('environmental-health-details', this)">Learn More</button>
+        <button onclick="showSection('benefits-of-organic-farming', this)">Back to Benefits of Organic Farming</button>
+    </section>
+
+    <!-- Environmental Health Details Section -->
+    <section id="environmental-health-details" class="section">
+        <h2>Environmental Health Details</h2>
+        <p>Reduced Chemical Pollution: Organic farming avoids synthetic pesticides, herbicides, and fertilizers, reducing pollution of soil, water, and air.
+        Soil Fertility and Biodiversity: Practices like crop rotation, composting, and natural fertilizers enhance soil fertility, which supports microbial life and biodiversity in the soil. Conservation of Water Resources: Organic farms use techniques like mulching and crop rotation, which can improve soil water retention, reducing the need for irrigation.
+        </p>
+        <button onclick="showSection('environmental-health', this)">Back to Environmental Health</button>
+    </section>
+
+    <!-- Human Health Section -->
+    <section id="human-health" class="section">
+        <h2>Human Health</h2>
+        <p>Organic produce is free from harmful chemicals, promoting better health for consumers.</p>
+        <button onclick="showSection('human-health-details', this)">Learn More</button>
+        <button onclick="showSection('benefits-of-organic-farming', this)">Back to Benefits of Organic Farming</button>
+    </section>
+
+    <!-- Human Health Details Section -->
+    <section id="human-health-details" class="section">
+        <h2>Human Health Details</h2>
+        <p>Consuming organic foods reduces exposure to pesticides and chemicals, supporting better overall health. Organic farming practices also contribute to nutrient-rich soils, which enhance the nutritional value of crops.
+        Reduced Exposure to Chemicals: By avoiding synthetic chemicals, organic foods tend to have lower pesticide residues, which can be beneficial for human health.
+        Higher Nutritional Value: Some studies suggest organic produce may contain higher levels of certain nutrients, antioxidants, and beneficial compounds compared to conventionally grown crops.
+        </p>
+        <button onclick="showSection('human-health', this)">Back to Human Health</button>
+    </section>
+
+    <!-- Animal Welfare Section -->
+    <section id="animal-welfare" class="section">
+        <h2>Animal Welfare</h2>
+        <p>Organic farming prioritizes the welfare of farm animals, providing them with better living conditions.</p>
+        <button onclick="showSection('animal-welfare-details', this)">Learn More</button>
+        <button onclick="showSection('benefits-of-organic-farming', this)">Back to Benefits of Organic Farming</button>
+    </section>
+
+    <!-- Animal Welfare Details Section -->
+    <section id="animal-welfare-details" class="section">
+        <h2>Animal Welfare Details</h2>
+        <p>Organic farming ensures that animals are raised in a more humane environment. They have access to outdoor spaces, are fed organic feed, and are not subjected to routine antibiotics or growth hormones, promoting their health and well-being.
+        Better Living Conditions: Organic farming often includes standards for animal welfare, such as access to outdoor space, organic feed, and a lower use of antibiotics.
+        Natural Behaviors: Animals on organic farms are generally allowed to engage in natural behaviors, which can improve their quality of life.  
+        </p>
+        <button onclick="showSection('animal-welfare', this)">Back to Animal Welfare</button>
+    </section>
+
+    <!-- Sustainability and Climate Resilience Section -->
+    <section id="sustainability-climate-resilience" class="section">
+        <h2>Sustainability and Climate Resilience</h2>
+        <p>Organic farming enhances resilience to climate change through biodiversity and sustainable practices.</p>
+        <button onclick="showSection('sustainability-climate-resilience-details', this)">Learn More</button>
+        <button onclick="showSection('benefits-of-organic-farming', this)">Back to Benefits of Organic Farming</button>
+    </section>
+
+    <!-- Sustainability and Climate Resilience Details Section -->
+    <section id="sustainability-climate-resilience-details" class="section">
+        <h2>Sustainability and Climate Resilience Details</h2>
+        <p>Organic farming practices contribute to carbon sequestration, biodiversity, and soil health, enhancing resilience to climate change. By promoting diverse cropping systems and minimizing chemical inputs, organic agriculture can adapt better to changing climate conditions.
+        Carbon Sequestration: Organic farming practices can improve soil health and enhance carbon sequestration, helping to mitigate climate change effects.
+        Biodiversity: Organic systems promote biodiversity, which is crucial for resilient ecosystems.
+        </p>
+        <button onclick="showSection('sustainability-climate-resilience', this)">Back to Sustainability and Climate Resilience</button>
+    </section>
+
+    <!-- Support for Local Economies Section -->
+    <section id="support-local-economies" class="section">
+        <h2>Support for Local Economies</h2>
+        <p>Buying organic supports local farmers and strengthens community economies.</p>
+        <button onclick="showSection('support-local-economies-details', this)">Learn More</button>
+        <button onclick="showSection('benefits-of-organic-farming', this)">Back to Benefits of Organic Farming</button>
+    </section>
+
+    <!-- Support for Local Economies Details Section -->
+    <section id="support-local-economies-details" class="section">
+        <h2>Support for Local Economies Details</h2>
+        <p>Purchasing organic products often involves supporting local farmers, which contributes to the local economy. By investing in organic farming, communities can promote sustainable practices and enhance food security.
+        Economic Benefits: Buying local organic products helps keep money within the community and supports local agriculture.
+        Food Security: Local organic farms can improve food access and security in their communities.
+        </p>
+        <button onclick="showSection('support-local-economies', this)">Back to Support for Local Economies</button>
+    </section>
+
+    <!-- Workshops and Training Section -->
+    <section id="workshops-and-training" class="section">
+        <h2>Workshops & Training</h2>
+        <p>Join our workshops to learn about organic farming techniques, sustainable practices, and more.</p>
+        <button onclick="showSection('organic-farming', this)">Back to Organic Farming</button>
+        <h1>My Video</h1>
+    <video width="640" height="360" controls>
+        <source src="farmervideo.mp4" type="video/mp4"></video>
+    <video width="640" height="360" controls>
+            <source src="farmervideo2.mp4" type="video/mp4"></video>
+    </section>
+
+    <!-- Strategies for Organic Farming Section -->
+    <section id="strategies-for-organic-farming" class="section">
+        <h2>Strategies for Organic Farming</h2>
+        <p>Here are some key strategies for successful organic farming:</p>
+        <ul>
+            <li><a href="#" onclick="showSection('soil-management', this)">Soil Management</a></li>
+            <li><a href="#" onclick="showSection('water-management', this)">Water Management</a></li>
+            <li><a href="#" onclick="showSection('seed-selection', this)">Seed Selection</a></li>
+        </ul>
+        <button onclick="showSection('organic-farming', this)">Back to Organic Farming</button>
+    </section>
+
+   <!-- Soil Management Section -->
+<section id="soil-management" class="section">
+    <h2>Soil Management</h2>
+    <p>Effective soil management is crucial for successful organic farming. Key components include:</p>
+    <ul>
+        <li><strong>Primary Macronutrients:</strong> Essential nutrients such as nitrogen, phosphorus, and potassium required in larger quantities for plant growth.
+        <ul>
+            <li><strong>Nitrogen(N):</strong> 1-2% of total soil composition. Essential for leaf and stem growth. Nitrogen should be in forms available for plants,around 20-50 ppm in soil.</li>
+            <li><strong>Phosphorus(P):</strong> 0.05-0.15% of soil comosition.Supports root development,flowering and fruiting.Available phosphorus should be around 10-20 ppm.</li>
+            <li><strong>potassium(K):</strong> 0.5-2% of total soil composition. Important for water regulation, disease resistance, and overall plant strength. potassium availability should be around 100-250 ppm.</li>
+        </ul> </li>
+        <li><strong>Secondary Nutrients:</strong> Important for plant health, including calcium, magnesium, and sulfur, but needed in smaller amounts than primary macronutrients.
+        <ul>
+            <li><strong>Calcium(Ca):</strong> 1-2% soil composition. Maintains cell structure and balances soil ph.</li>
+            <li><strong>Magnesium(Mg):</strong> 0.1-0.5% of soil composition. Aids in Photosynthesis and enzyme function.</li>
+            <li><strong>Sulpur(S):</strong> 0.05-0.2% of soil composition. Essential for protein synthesis and enzyme function.</li>
+        </ul></li>
+        <li><strong>Micronutrients:</strong> Trace elements like iron, manganese, and zinc necessary for plant development, even in tiny quantities.
+        <ul>
+            <li><strong>Iron (Fe): </strong>2-5 ppm.</li>
+            <li><strong>Manganese (Mn):</strong> 1-5 ppm.</li>
+            <li><strong>Zinc(Zn):</strong> 0.5-2 ppm.</li>
+            <li><strong>Copper (Cu):</strong> 0.1-1 ppm.</li>
+            <li><strong>Boron (B):</strong> 0.1-1 ppm.</li>
+            <li><strong>Molybdenum (Mo):</strong> 0.01-0.1 ppm.</li>
+        </ul></li>
+        <li><strong>Organic Matter:</strong> Adds nutrients to the soil, improves structure, and increases water retention.Ideally,soil should contain 3-6% organic matter.
+        This provides a steady nutrient release and enhances soil structure,aeration, and water retention.</li>
+        <li><strong>Soil pH:</strong> Affects nutrient availability; maintaining optimal pH is essential for plant health. Nutrient availability is also influenced by soil pH.
+        A pH range of 6.0 to 7.5 is generally ideal for most crops,as it optimizes nutrient uptake.</li>
+    </ul>
+    <p>These percentages can vary based on crop type, soil testing, and environmental conditions.Regular soil tests are essential to fine-tune nutrient levels for specific crop needs.</p>
+    <button onclick="showSection('strategies-for-organic-farming', this)">Back to Strategies for Organic Farming</button>
+</section>
+
+
+    <!-- Water Management Section -->
+    <section id="water-management" class="section">
+        <h2>Water Management</h2>
+        <p>Organic farming emphasizes efficient water use through methods like drip irrigation and rainwater harvesting to conserve this vital resource.</p>
+        <ul>
+            <li><strong>Irrigation Techniques:</strong>
+            <ul>
+                <li><strong> Drip Irrigation:</strong> Delivers water directly to the plant roots, reducing evaporation and runoff.</li>
+                <li><strong>Sprinkler Systems:</strong> Distributes water evenly across large areas, suitable for various crops.</li>
+                <li><strong>Surface Irrigation:</strong> Involves flooding fields with water; effective for certain crops but may lead to waterlogging.</li>
+            </ul></li>
+            <li><strong>Rainwater Harvesting</strong>:
+
+                Collecting and storing rainwater for irrigation use, reducing dependence on groundwater and municipal water supplies.
+            </li>
+            <li>
+                <strong>Soil Moisture Management:</strong> Monitoring soil moisture levels to determine irrigation needs, ensuring plants receive adequate water without overwatering.
+            </li>
+            <li><strong>Mulching:</strong>Applying organic materials (e.g., straw, wood chips) to the soil surface to retain moisture, suppress weeds, and improve soil health.</li>
+            <li><strong>Crop Selection:</strong>Choosing drought-resistant and native plant varieties that require less water and are better adapted to local conditions.</li>
+            <li><strong>Water Quality Management:</strong>Testing and maintaining water quality to prevent contamination and ensure the health of crops and soil.</li>
+            <li><strong>Soil Health Practices:</strong>Improving soil structure and organic matter content enhances water retention and reduces erosion, benefiting overall water management.</li>
+            <li><strong>Monitoring and Adjusting:</strong>Regularly assessing water use efficiency and adapting practices based on crop needs, seasonal changes, and climate variations.</li>
+
+        </ul>
+        <button onclick="showSection('strategies-for-organic-farming', this)">Back to Strategies for Organic Farming</button>
+    </section>
+
+    <!-- Seed Selection Section -->
+    <section id="seed-selection" class="section">
+        <h2>Seed Selection</h2>
+        <p>Choosing the right seeds is critical in organic farming. Focus on disease-resistant varieties and consider heirloom options for better biodiversity.</p>
+        <ul>
+            <li><strong>Organic Certification:</strong>Ensure that the seeds are certified organic, meaning they have been produced without synthetic fertilizers, pesticides, or genetically modified organisms (GMOs). This helps maintain the integrity of organic farming practices.
+            </li>
+            <li><strong>Adaptation to Local Conditions:</strong> Choose varieties that are well-adapted to the local climate, soil type, and growing conditions. This increases resilience against local pests and diseases.</li>
+            <li><strong>Disease Resistance:</strong>Opt for seed varieties that are resistant to common pests and diseases in your region. This can help reduce the need for interventions and improve crop health.</li>
+            <li><strong>Heirloom and Heritage Varieties:</strong>Consider planting heirloom or heritage seeds. These traditional varieties often have better flavor and nutritional value, and they can contribute to biodiversity.</li>
+            <li><strong>Nutritional Value:</strong>Evaluate the nutritional content of different seed varieties, as some may offer superior health benefits compared to others.
+            </li>
+            <li><strong>Growth Habit:</strong>Select seeds based on their growth habit (e.g., bush vs. vine), which can impact spacing, yield, and ease of management.</li>
+            <li><strong>Yield Potential:</strong>Research the yield potential of different varieties to make informed decisions about expected harvests.</li>
+            <li><strong>Consult Local Seed Sources:</strong>Engage with local seed suppliers, extension services, or agricultural universities that can provide insights into the best varieties for your specific area.</li>
+            <li><strong>Trial and Observation:</strong>Conduct small trials with different varieties to observe their performance in your unique conditions. This can help identify the best performers before committing to larger plantings.
+            </li>
+            <li><strong>Regenerative Practices:</strong>Consider how the chosen seeds will fit into regenerative agricultural practices, such as crop rotation, companion planting, and soil health improvement.
+            </li>
+            <li><strong>Seed Saving:</strong>If you have the knowledge and resources, consider selecting and saving seeds from your best-performing plants for future planting, promoting genetic diversity and resilience in your crops.</li></ul>
+            <p>By carefully considering these factors, organic farmers can enhance their crop production, promote biodiversity, and contribute to sustainable agricultural practices. </p>
+        <button onclick="showSection('strategies-for-organic-farming', this)">Back to Strategies for Organic Farming</button>
+    </section>
+
+    <section id="others" class="section">
+        <h2>Others</h2>
+        <p>Explore additional services and options to meet your agricultural needs.</p>
+        <div class="card-container">
+            <div class="card">
+                <h3><a href="#" onclick="showSection('provider-services', this)">Provider Services</a></h3>
+            </div>
+            <div class="card">
+                <h3><a href="#" onclick="showSection('farmers-requirements', this)">Farmers' Requirements</a></h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Provider Services Section -->
+    <section id="provider-services" class="section">
+        <h2>Provider Services</h2>
+        <p>Explore services provided by agricultural experts to support and supply local farmers.</p>
+        <div class="service-options">
+            <button onclick="showServiceDetails('mechanics')">Mechanics</button>
+            <button onclick="showServiceDetails('electricians')">Electricians</button>
+            <button onclick="showServiceDetails('workers')">Workers</button>
+        </div>
+        <button onclick="showSection('others', this)">Back to Others</button>
+    </section>
+    
+    <!-- Mechanics Section -->
+    <section id="mechanics" class="section">
+        <h2>Mechanics</h2>
+        <p>Contact Details of Site Owner:</p>
+        <ul>
+            <li>Phone: 123-456-7890</li>
+            <li>Email: siteowner@example.com</li>
+        </ul>
+        <button onclick="showSection('provider-services', this)">Back to Provider Services</button>
+    </section>
+    
+    <!-- Electricians Section -->
+    <section id="electricians" class="section">
+        <h2>Electricians</h2>
+        <p>Contact Details of Site Owner:</p>
+        <ul>
+            <li>Phone: 123-456-7890</li>
+            <li>Email: siteowner@example.com</li>
+        </ul>
+        <button onclick="showSection('provider-services', this)">Back to Provider Services</button>
+    </section>
+    
+    <!-- Workers Section -->
+    <section id="workers" class="section">
+        <h2>Workers</h2>
+        <p>Contact Details of Site Owner:</p>
+        <ul>
+            <li>Phone: 123-456-7890</li>
+            <li>Email: siteowner@example.com</li>
+        </ul>
+        <button onclick="showSection('provider-services', this)">Back to Provider Services</button>
+    </section>
+    <section id="farmers-requirements" class="section">
+        <h2>Farmers' Requirements</h2>
+        <p>Select an option to proceed:</p>
+        <div class="requirement-options">
+            <button onclick="showRequirementOptions('sell')">Sell</button>
+            <button onclick="showRequirementOptions('buy')">Buy</button>
+        </div>
+        <button onclick="showSection('others', this)">Back to Others</button>
+    </section>
+    
+    <!-- Requirement Options Section -->
+    <section id="requirement-options" class="section" style="display: none;">
+        <h2 id="requirement-type-header"></h2>
+        <div id="requirement-content"></div>
+        <button onclick="showSection('farmers-requirements', this)">Back to Farmers' Requirements</button>
+    </section>
+    
+    <!-- Upload Form -->
+    <section id="upload-form" class="section" style="display: none;">
+        <h2>Upload Item</h2>
+        <form id="item-upload-form">
+          <label for="item-name">Item Name:</label>
+          <input type="text" id="item-name" name="item-name" required>
+          <label for="seller-name">Seller Name:</label>
+          <input type="text" id="seller-name" name="seller-name" required>
+          <label for="item-address">Address:</label>
+          <input type="text" id="item-address" name="item-address" required>
+          <label for="item-phone">Phone No.:</label>
+          <input type="tel" id="item-phone" name="item-phone" required>
+          <label for="item-age">Age:</label>
+          <input type="number" id="item-age" name="item-age" required>
+          <label for="item-condition">Condition:</label>
+          <input type="text" id="item-condition" name="item-condition" required>
+          <label for="item-picture">Upload Picture:</label>
+          <input type="file" id="item-picture" name="item-picture" accept="image/*" required>
+          <button type="submit">Submit</button>
+        </form>
+        <button onclick="showSection('farmers-requirements', this)">Back to Farmers' Requirements</button>
+      </section>
+    
+    <!-- Buying Options Section -->
+    <section id="buying-options" class="section" style="display: none;">
+        <h2>Buy Options</h2>
+        <div id="buy-content"></div>
+        <button onclick="showSection('farmers-requirements', this)">Back to Farmers' Requirements</button>
+    </section>
+
+    <!-- Farmers' Requirements Section -->
+    <section id="farmers-requirements" class="section">
+        <h2>Farmers' Requirements</h2>
+        <p>Find resources, tools, and other essentials farmers need for successful operations.</p>
+        <button onclick="showSection('others', this)">Back to Others</button>
+    </section>
+    <!-- Feedback Section -->
+    <section id="Feedback" class="section">
+        <h2>Feedback</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Submit Feedback</button>
+        </form>
+        <button onclick="showSection('home', this)">Back to Home</button>
+    </section>
+
+    <!-- JavaScript for Section Navigation -->
+    <script>
+        function showSection(sectionId, element) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            // Show the selected section
+            if (sectionId) {
+                document.getElementById(sectionId).classList.add('active');
+            }
+
+            // Remove active class from all links
+            const links = document.querySelectorAll('.navbar ul li a');
+            links.forEach(link => link.classList.remove('active'));
+
+            // Add active class to the clicked link
+            if (element) {
+                element.classList.add('active');
+            }
+        }
+        
+
+        // Toggle between login and signup forms
+        function toggleForms(formType) {
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            
+            if (formType === 'login') {
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+            } else {
+                signupForm.style.display = 'block';
+                loginForm.style.display = 'none';
+            }
+        }
+        function showServiceDetails(serviceId) {
+        // Get all service sections
+        const services = ['mechanics', 'electricians', 'workers'];
+
+        // Hide all service sections
+        services.forEach(service => {
+            document.getElementById(service).classList.remove('active');
+        });
+
+        // Show the selected service section
+        document.getElementById(serviceId).classList.add('active');
+    }// Function to play video when the Workshops & Training section is shown
+function showSection(sectionId, element) {
+    // Hide all sections
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        section.classList.remove('active');
+        // Pause video when hiding
+        if (sectionId !== 'workshops-and-training') {
+            const video = document.getElementById('training-video');
+            if (video) {
+                video.pause(); // Pause video if it's not the current section
+                video.currentTime = 0; // Optional: Reset video to start
+            }
+        }
+    });
+
+    // Show the selected section
+    if (sectionId) {
+        document.getElementById(sectionId).classList.add('active');
+    }
+
+    // Remove active class from all links
+    const links = document.querySelectorAll('.navbar ul li a');
+    links.forEach(link => link.classList.remove('active'));
+
+    // Add active class to the clicked link
+    if (element) {
+        element.classList.add('active');
+    }
+
+    // Play video if the Workshops & Training section is shown
+    if (sectionId === 'workshops-and-training') {
+        const video = document.getElementById('training-video');
+        if (video) {
+            video.play();
+        }
+    }
+}
+function showRequirementOptions(type) {
+    const optionsSection = document.getElementById('requirement-options');
+    const requirementHeader = document.getElementById('requirement-type-header');
+    const requirementContent = document.getElementById('requirement-content');
+
+    requirementHeader.textContent = type === 'sell' ? 'Selling Options' : 'Buying Options';
+    
+    if (type === 'sell') {
+        requirementContent.innerHTML = `
+            <p><button onclick="toggleForms('signup')">Register Before Uploading</button></p>
+            <p><button onclick="showUploadForm()">Upload if Registered</button></p>
+        `;
+    } else {
+        requirementContent.innerHTML = `
+            <p><button onclick="toggleForms('signup')">Register to Continue</button></p>
+            <p><button onclick="showBuyingItems()">Continue if Registered</button></p>
+        `;
+    }
+
+    optionsSection.style.display = 'block';
+}
+
+// Show upload form
+function showUploadForm() {
+    const uploadFormSection = document.getElementById('upload-form');
+    uploadFormSection.style.display = 'block';
+    document.getElementById('requirement-options').style.display = 'none';
+
+    // Submit event handling for the upload form
+    document.getElementById('item-upload-form').onsubmit = function(event) {
+        event.preventDefault(); // Prevent default form submission
+        alert('Item uploaded successfully!');
+        // Here you can add code to store the data and manage the uploaded items
+    };
+}
+
+// Show buying items logic
+function showBuyingItems() {
+    const buyingOptionsSection = document.getElementById('buying-options');
+    buyingOptionsSection.style.display = 'block';
+    document.getElementById('requirement-options').style.display = 'none';
+
+    // Here you can add code to display the items uploaded by sellers
+    // This can be done with an AJAX call or by rendering items directly
+}
+        
+    </script>
+    
+</body>
+</html>
